@@ -2,15 +2,13 @@ from django.contrib import admin
 from galeria.models import Fotografia
 
 class ListandoFotografia(admin.ModelAdmin):
-    list_diplay = ("id", "nome", "legenda")
-
+    list_display = ("id", "nome", "legenda", "publicada")
     list_display_links = ("id", "nome")
     search_fields = ("nome",)
     list_per_page = 10
-    
-    list_editable = ("legenda",)
-    list_filter = ("categoria")
+    list_filter = ("categoria",)
+    list_editable = ("publicada",)
 
-admin.site.register(Fotografia)
+admin.site.register(Fotografia, ListandoFotografia)
 
 
